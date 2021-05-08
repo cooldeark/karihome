@@ -1,0 +1,376 @@
+* {/*簡單來說這裡先拿掉*/
+    /* padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box; */
+  }
+  
+  .showPointer{
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  
+  .myModal-header{
+    display:flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    border-top-left-radius: calc(.3rem - 1px);
+    border-top-right-radius: calc(.3rem - 1px);
+  
+  }
+  
+  .myModal-header .myClose {
+    z-index: 99;
+    padding: 0% 20%;
+    margin: -0.1% -33% -60% auto;
+  }
+  
+  .myClose{
+      /* float: right; */
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1;
+  }
+  
+    .myModal-content{
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      width:100%;
+      pointer-events:auto;
+      outline:0;
+      margin-top: -45%;
+      margin-left: -4%;
+    }
+  
+  body {
+    /* height: 100vh; */
+    /* display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; */
+    /* background: #ecf3f2; */
+  }
+  
+  
+  
+  .memory-game {
+    /* width: 50vw;
+    height: 80vh; */
+    /* width: 650px;
+    height: 540px; */
+    /* margin: auto; */
+    /* display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    margin-top: 0; */
+  }
+  
+  .memory-card {
+    display: flex;
+    width: 102px;
+    height: 156px;
+    /* margin: 2px; */
+    position: relative;
+    -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: -webkit-transform .5s;
+    transition: -webkit-transform .5s;
+    -o-transition: transform .5s;
+    transition: transform .5s;
+    transition: transform .5s, -webkit-transform .5s;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .logomemory-card {
+    width: 102px;
+    height: 156px;
+    /* margin: 2px; */
+    position: relative;
+    -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: -webkit-transform .5s;
+    transition: -webkit-transform .5s;
+    -o-transition: transform .5s;
+    transition: transform .5s;
+    transition: transform .5s, -webkit-transform .5s;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .memory-card:active {
+    -webkit-transform: scale(0.97);
+    -ms-transform: scale(0.97);
+    transform: scale(0.97);
+    -webkit-transition: -webkit-transform .2s;
+    transition: -webkit-transform .2s;
+    -o-transition: transform .2s;
+    transition: transform .2s;
+    transition: transform .2s, -webkit-transform .2s;
+  }
+  
+  .memory-card.flip {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+  
+  .logomemory-card.flip {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+  
+  .front-face{
+    /* right:0;
+    top:0;
+    display: inline-block; */
+    /* table-layout: fixed;  */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 5px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .back-face {
+    /* right:0;
+      top:0;
+    display: inline-block; */
+    /* table-layout: fixed;  */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 5px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .front-face {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* Style only for Google Chrome/Opera */
+  
+  /* @media screen and (-webkit-min-device-pixel-ratio:0) { */
+   
+  /* } */
+  
+  
+  
+  /* Style only for Mozilla Firefox */
+  
+  @-moz-document url-prefix(){ 
+    .memory-card {
+      width: 122px;
+      height: 156px;
+      /* margin: 2px; */
+      position: relative;
+      -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      -webkit-transition: -webkit-transform .5s;
+      transition: -webkit-transform .5s;
+      -o-transition: transform .5s;
+      transition: transform .5s;
+      transition: transform .5s, -webkit-transform .5s;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .logomemory-card {
+      width: 122px;
+      height: 156px;
+      /* margin: 2px; */
+      position: relative;
+      -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      -webkit-transition: -webkit-transform .5s;
+      transition: -webkit-transform .5s;
+      -o-transition: transform .5s;
+      transition: transform .5s;
+      transition: transform .5s, -webkit-transform .5s;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  .description{
+    /* margin-left:15%; */
+  }
+  
+   
+  }
+  
+  /*ie
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .back-face {
+      right:0;
+      top:0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    
+    border-radius: 5px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    }
+  
+    .front-face{
+      right:0;
+      top:0;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      
+      border-radius: 5px;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+  }
+  */
+  
+  
+  
+  
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen 
+  and (min-device-width : 320px) 
+  and (max-device-width : 480px) {
+  /* Styles */
+  .descriptionMargin{
+    margin-left: 10%;
+  }
+  }
+  
+  /* Smartphones (landscape) ----------- */
+  @media only screen 
+  and (min-width : 321px) {
+  /* Styles */
+  .descriptionMargin{
+    margin-left: 10%;
+  }
+  }
+  
+  /* Smartphones (portrait) ----------- */
+  @media only screen 
+  and (max-width : 320px) {
+  /* Styles */
+  .descriptionMargin{
+    margin-left: 10%;
+  }
+  }
+  
+  
+  /*///////////////////*/
+  
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px) {
+  /* Styles */
+  .descriptionMargin{
+    margin-left: -3%;
+  }
+  }
+  
+  /* iPads (landscape) ----------- */
+  @media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px) 
+  and (orientation : landscape) {
+  /* Styles */
+  .descriptionMargin{
+    margin-left: -3%;
+  }
+  }
+  
+  /* iPads (portrait) ----------- */
+  @media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px) 
+  and (orientation : portrait) {
+  /* Styles */
+  .descriptionMargin{
+    margin-left: -3%;
+  }
+  }
+  
+  /* Desktops and laptops ----------- */
+  @media only screen 
+  and (min-width : 1224px) {
+  /* Styles */
+  .descriptionMargin{
+    margin-left: -3%;
+  }
+  }
+  
+  /* Large screens ----------- */
+  @media only screen 
+  and (min-width : 1824px) {
+  /* Styles */
+  .descriptionMargin{
+    margin-left: -3%;
+  }
+  }
+  
+  /* iPhone 4 ----------- */
+  @media
+  only screen and (-webkit-min-device-pixel-ratio : 1.5),
+  only screen and (min-device-pixel-ratio : 1.5) {
+  /* Styles */
+  .descriptionMargin{
+    /* margin-left: 10%; */
+  }
+  }
+  
