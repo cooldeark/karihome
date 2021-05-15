@@ -233,4 +233,14 @@ return [
 
     ],
 
+    //fb variable
+    'fb_varible'=>[
+        // 'FB_CLIENT_ID'=>'312500466975870',
+        // 'FB_CLIENT_SECRET'=>'81e08a2cb86ab6a00d65a39871ac4224',
+        // 'FB_REDIRECT'=>'https://3bb16aecc5df.ngrok.io/user/auth/facebook-sign-in-callback',
+        'FB_CLIENT_ID'=>env('FB_CLIENT_ID'),
+        'FB_CLIENT_SECRET'=>env('FB_CLIENT_SECRET'),
+        'FB_REDIRECT'=>env('FB_REDIRECT'),
+    ],
+
 ];

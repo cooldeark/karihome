@@ -36,19 +36,20 @@
 </head>
 <body>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-138714632-4"></script>
+{{-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138714632-4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'UA-138714632-4');
-</script>
+</script> --}}
 
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '1350736258450938',
+      appId      : "{{config('app.fb_varible.FB_CLIENT_ID')}}",
+      app_secret : "{{config('app.fb_varible.FB_CLIENT_SECRET')}}",
       cookie     : true,
       xfbml      : true,
       version    : 'v7.0'
@@ -228,17 +229,34 @@
 $('#gameBtn').click(function(){
     if(watchVideo){
         FB.login(function(response){
-        
+        console.log(response);
         if(response.status=='unknown'){
             alert('請先登入FB才能玩遊戲哦~');
         }else if(response.status=='connected'){
+
+        //FB.api=>取得user身上的資訊    
+        FB.api('/me', { locale: 'tr_TR', fields: 'name, email,birthday, hometown,education,gender,website,work' },
+          function(response) {
+            console.log(response);
+            console.log(response.email);
+            console.log(response.name);
+            console.log(response.gender);
+            console.log(response.birthday);
+            console.log(response.hometown);
+            console.log(response.education);
+            console.log(response.website);
+            console.log(response.work);
+          }
+        );
+
+
             $.ajax({
             url:"/getBladeFBID",
             data:{FBId:response.authResponse.userID},
             type:'get',
             success:function(data){
                 console.log('success');
-                window.location.href="{{url('/game')}}";
+                // window.location.href="{{url('/game')}}";
             }
         }).fail(function(data){
         });
@@ -274,27 +292,28 @@ $('#gameBtn').click(function(){
 // });
 //上線拿掉這裡以上
 
+//GTAG事件code
+// $('#activityDescription').click(function(){
+//     gtag('event', 'activityDescription'); 
+// });
 
-$('#activityDescription').click(function(){
-    gtag('event', 'activityDescription'); 
-});
+// $('#activityStore').click(function(){
+//     gtag('event', 'activityStore'); 
+// });
+// $('#productIntruduce').click(function(){
+//     gtag('event', 'productIntruduce'); 
+// });
 
-$('#activityStore').click(function(){
-    gtag('event', 'activityStore'); 
-});
-$('#productIntruduce').click(function(){
-    gtag('event', 'productIntruduce'); 
-});
+// $('#getInActivity').click(function(){
+//     gtag('event', 'getInActivity'); 
+// });
+// $('.myFBClick').click(function(){
+//     gtag('event', 'FBClick'); 
+// });
+// $('.myLineClick').click(function(){
+//     gtag('event', 'LineClick'); 
+// });
 
-$('#getInActivity').click(function(){
-    gtag('event', 'getInActivity'); 
-});
-$('.myFBClick').click(function(){
-    gtag('event', 'FBClick'); 
-});
-$('.myLineClick').click(function(){
-    gtag('event', 'LineClick'); 
-});
 </script>
 
     
